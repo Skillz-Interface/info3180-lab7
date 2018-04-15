@@ -52,7 +52,15 @@ const uploadform= Vue.component('upload-form', {
           <h2>Photo Upload </h2>
           <hr>
           <div>
-      
+            <ul class="list">
+                <li v-for="resp in response" class="list alert alert-success">
+                    {{ resp.message }}
+                </li>
+                <li v-for="resp in error" class="list alert alert-danger">
+                    {{ resp.errors[0] }} <br>
+                    {{ resp.errors[1] }}
+                </li>
+            </ul>
 
             <form id="uploadForm"  @submit.prevent="uploadPhoto" method="POST" enctype="multipart/form-data">
                 <div>
